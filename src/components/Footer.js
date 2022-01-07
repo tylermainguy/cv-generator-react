@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Footer extends Component {
   constructor(props) {
@@ -7,11 +7,7 @@ class Footer extends Component {
   }
 
   render() {
-    return (
-      <div className="footer">
-        Copyright © Tyler Mainguy 2022
-      </div>
-    );
+    return <div className="footer">Copyright © Tyler Mainguy 2022</div>;
   }
 }
 
