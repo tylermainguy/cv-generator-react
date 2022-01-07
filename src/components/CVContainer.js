@@ -225,37 +225,33 @@ class CVContainer extends Component {
   toggleEducationEdit = (e) => {
     const targetId = e.target.getAttribute("refid");
 
-    console.log(targetId);
-    const index = this.state.educationList.findIndex(
-      (elem) => elem.uniqueId === targetId
-    );
-    const arrayCopy = [...this.state.educationList];
-    const itemCopy = { ...arrayCopy[index] };
-
-    itemCopy.isEdit = !itemCopy.isEdit;
-    arrayCopy[index] = itemCopy;
-
     this.setState((prevState) => ({
       ...prevState,
-      educationList: arrayCopy,
+      educationList: prevState.educationList.map((education) => {
+        if (education.uniqueId === targetId) {
+          const itemCopy = { ...education };
+
+          itemCopy.isEdit = !itemCopy.isEdit;
+          return itemCopy;
+        }
+        return education;
+      }),
     }));
   };
 
   editExistingEducation = (e) => {
     const targetId = e.target.getAttribute("refid");
 
-    const index = this.state.educationList.findIndex(
-      (elem) => elem.uniqueId === targetId
-    );
-    const arrayCopy = [...this.state.educationList];
-    const itemCopy = { ...arrayCopy[index] };
-
-    itemCopy[e.target.id] = e.target.value;
-    arrayCopy[index] = itemCopy;
-
     this.setState((prevState) => ({
       ...prevState,
-      educationList: arrayCopy,
+      educationList: prevState.educationList.map((education) => {
+        if (education.uniqueId === targetId) {
+          const itemCopy = { ...education };
+          itemCopy[e.target.id] = e.target.value;
+          return itemCopy;
+        }
+        return education;
+      }),
     }));
   };
 
