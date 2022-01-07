@@ -105,6 +105,7 @@ class DisplayWindow extends Component {
               </div>
             )}
             {workList
+              // want newer work experience to show up first
               .sort((a, b) => (a.workStarted < b.workStarted ? 1 : -1))
               .map((work) => {
                 return (

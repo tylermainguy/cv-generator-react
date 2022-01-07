@@ -7,7 +7,12 @@ class Header extends Component {
   }
 
   render() {
-    return <div className="header">Please Hire Me</div>;
+    return (
+      <div className="header">
+        <i className="fas fa-file-alt"></i>
+        <span className="header-text">Please Hire Me</span>
+      </div>
+    );
   }
 }
 

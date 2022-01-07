@@ -106,6 +106,7 @@ class EditWindow extends Component {
                 fieldOfStudy={education.fieldOfStudy}
                 yearStarted={education.yearStarted}
                 yearFinished={education.yearFinished}
+                educationDescription={education.educationDescription}
                 deleteEducationEntry={deleteEducationEntry}
                 uniqueId={education.uniqueId}
                 key={education.uniqueId}
