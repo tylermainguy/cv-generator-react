@@ -26,6 +26,7 @@ class CVContainer extends Component {
         yearStarted: "",
         yearFinished: "",
         educationDescription: "",
+        isEdit: false,
       },
       workList: [],
       work: {
@@ -35,6 +36,7 @@ class CVContainer extends Component {
         workStarted: "",
         workFinished: "",
         workDescription: "",
+        isEdit: false,
       },
     };
   }
@@ -199,7 +201,7 @@ class CVContainer extends Component {
   };
 
   deleteEducationEntry = (e) => {
-    const targetId = e.target.parentNode.id;
+    const targetId = e.target.getAttribute("refid");
 
     this.setState((prevState) => ({
       ...prevState,
@@ -217,6 +219,43 @@ class CVContainer extends Component {
       workList: this.state.workList.filter((work) => {
         return work.uniqueId !== targetId;
       }),
+    }));
+  };
+
+  toggleEducationEdit = (e) => {
+    const targetId = e.target.getAttribute("refid");
+
+    console.log(targetId);
+    const index = this.state.educationList.findIndex(
+      (elem) => elem.uniqueId === targetId
+    );
+    const arrayCopy = [...this.state.educationList];
+    const itemCopy = { ...arrayCopy[index] };
+
+    itemCopy.isEdit = !itemCopy.isEdit;
+    arrayCopy[index] = itemCopy;
+
+    this.setState((prevState) => ({
+      ...prevState,
+      educationList: arrayCopy,
+    }));
+  };
+
+  editExistingEducation = (e) => {
+    const targetId = e.target.getAttribute("refid");
+
+    const index = this.state.educationList.findIndex(
+      (elem) => elem.uniqueId === targetId
+    );
+    const arrayCopy = [...this.state.educationList];
+    const itemCopy = { ...arrayCopy[index] };
+
+    itemCopy[e.target.id] = e.target.value;
+    arrayCopy[index] = itemCopy;
+
+    this.setState((prevState) => ({
+      ...prevState,
+      educationList: arrayCopy,
     }));
   };
 
@@ -257,6 +296,12 @@ class CVContainer extends Component {
           editYear={(e) => this.editYear(e)}
           editWorkYear={(e) => {
             this.editWorkYear(e);
+          }}
+          toggleEducationEdit={(e) => {
+            this.toggleEducationEdit(e);
+          }}
+          editExistingEducation={(e) => {
+            this.editExistingEducation(e);
           }}
         />
         <DisplayWindow

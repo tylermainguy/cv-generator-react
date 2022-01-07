@@ -25,6 +25,8 @@ class EditWindow extends Component {
       work,
       workList,
       deleteWorkEntry,
+      toggleEducationEdit,
+      editExistingEducation,
     } = this.props;
     const {
       firstName,
@@ -98,18 +100,21 @@ class EditWindow extends Component {
         </div>
         <div className="edit-section">
           <div className="edit-title">Education</div>
-          {educationList.map((education) => {
+          {educationList.map((edu) => {
             return (
               <EducationListing
-                location={education.location}
-                degree={education.degree}
-                fieldOfStudy={education.fieldOfStudy}
-                yearStarted={education.yearStarted}
-                yearFinished={education.yearFinished}
-                educationDescription={education.educationDescription}
+                location={edu.location}
+                degree={edu.degree}
+                fieldOfStudy={edu.fieldOfStudy}
+                yearStarted={edu.yearStarted}
+                yearFinished={edu.yearFinished}
+                educationDescription={edu.educationDescription}
                 deleteEducationEntry={deleteEducationEntry}
-                uniqueId={education.uniqueId}
-                key={education.uniqueId}
+                uniqueId={edu.uniqueId}
+                toggleEdit={toggleEducationEdit}
+                isEdit={edu.isEdit}
+                key={edu.uniqueId}
+                editExistingEducation={editExistingEducation}
               />
             );
           })}

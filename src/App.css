@@ -140,6 +140,7 @@ form,
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 5px 1px gray;
+  /* font-size: 16px; */
 }
 
 .education-entry-listing {
@@ -185,12 +186,16 @@ textarea {
   margin-right: auto;
 }
 
+.edit-button {
+  background-color: #3498db;
+}
+
 .delete-button {
   background-color: #e74c3c;
 }
 
 .add-button {
-  background-color: #2ecc71;
+  background-color: #27ae60;
 }
 
 button {
@@ -212,4 +217,9 @@ button:hover {
 
 .header-text {
   margin-left: 10px;
+}
+
+.education-listing-buttons {
+  display: flex;
+  gap: 10px;
 }
