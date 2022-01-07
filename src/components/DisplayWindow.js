@@ -43,8 +43,7 @@ class DisplayWindow extends Component {
                   <div className="wrap-display listing-title">Some University, BA Computer Science</div>
                   <div className="wrap-display listing-years">2016-2020</div>
                   <div className="wrap-display listing-description">
-                    Graduated with Honours distinction from the Bachelors of Computing program, with a specialization
-                    in Computing and Mathematics.
+                    Graduated from some university, with a degree in computer science.
                   </div>
                 </div>
             }
@@ -66,20 +65,20 @@ class DisplayWindow extends Component {
           <div className="work-list">
             { workList.length === 0 && 
                 <div  className="listing">
-                  <div className="wrap-display listing-title">Software Engineer @ Kijiji</div>
+                  <div className="wrap-display listing-title">Software Engineer @ Some Company</div>
                   <div className="wrap-display listing-years">2020-2021</div>
                   <div className="wrap-display listing-description">
-                    Worked on map features for Kijij's search functionality. Primary technologies
-                    used were React, node.js, and graphql.
+                    Worked on map features. Primary technologies used were
+                    React, node.js, and graphql.
                   </div>
                 </div>
             }
             { workList.length === 0 && 
                 <div  className="listing">
-                  <div className="wrap-display listing-title">Software Engineer @ Baidu</div>
+                  <div className="wrap-display listing-title">Software Engineer @ Some Other Company</div>
                   <div className="wrap-display listing-years">2020-2021</div>
                   <div className="wrap-display listing-description">
-                    Worked on some other things at Baidu. Primary techonolgies
+                    Worked on some other things at this company. Primary techonolgies
                     used were React, node.js, and graphql.
                   </div>
                 </div>
