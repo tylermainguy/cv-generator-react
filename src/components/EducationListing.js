@@ -8,6 +8,13 @@ class EducationListing extends Component {
   }
   render() {
     const {
+      education,
+      deleteEducationEntry,
+      editExistingEducation,
+      toggleEdit,
+    } = this.props;
+
+    const {
       uniqueId,
       location,
       degree,
@@ -15,11 +22,8 @@ class EducationListing extends Component {
       yearStarted,
       yearFinished,
       educationDescription,
-      deleteEducationEntry,
-      editExistingEducation,
-      toggleEdit,
       isEdit,
-    } = this.props;
+    } = education;
 
     if (isEdit) {
       return (

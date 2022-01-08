@@ -105,17 +105,10 @@ class EditWindow extends Component {
           {educationList.map((edu) => {
             return (
               <EducationListing
-                location={edu.location}
-                degree={edu.degree}
-                fieldOfStudy={edu.fieldOfStudy}
-                yearStarted={edu.yearStarted}
-                yearFinished={edu.yearFinished}
-                educationDescription={edu.educationDescription}
-                deleteEducationEntry={deleteEducationEntry}
-                uniqueId={edu.uniqueId}
-                toggleEdit={toggleEducationEdit}
-                isEdit={edu.isEdit}
                 key={edu.uniqueId}
+                education={edu}
+                deleteEducationEntry={deleteEducationEntry}
+                toggleEdit={toggleEducationEdit}
                 editExistingEducation={editExistingEducation}
               />
             );
@@ -173,16 +166,10 @@ class EditWindow extends Component {
           {workList.map((work) => {
             return (
               <WorkListing
+                work={work}
                 key={work.uniqueId}
-                company={work.company}
-                position={work.position}
-                workStarted={work.workStarted}
-                workFinished={work.workFinished}
-                workDescription={work.workDescription}
                 deleteEntry={deleteWorkEntry}
                 toggleEdit={toggleWorkEdit}
-                isEdit={work.isEdit}
-                uniqueId={work.uniqueId}
                 editExistingWork={editExistingWork}
               />
             );

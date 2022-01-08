@@ -8,6 +8,7 @@ class WorkListing extends Component {
   }
 
   render() {
+    const { work, deleteEntry, toggleEdit, editExistingWork } = this.props;
     const {
       uniqueId,
       company,
@@ -15,11 +16,8 @@ class WorkListing extends Component {
       workStarted,
       workFinished,
       workDescription,
-      deleteEntry,
       isEdit,
-      toggleEdit,
-      editExistingWork,
-    } = this.props;
+    } = work;
 
     if (isEdit) {
       return (
