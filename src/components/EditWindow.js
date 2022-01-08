@@ -26,7 +26,9 @@ class EditWindow extends Component {
       workList,
       deleteWorkEntry,
       toggleEducationEdit,
+      toggleWorkEdit,
       editExistingEducation,
+      editExistingWork,
     } = this.props;
     const {
       firstName,
@@ -176,7 +178,12 @@ class EditWindow extends Component {
                 position={work.position}
                 workStarted={work.workStarted}
                 workFinished={work.workFinished}
+                workDescription={work.workDescription}
                 deleteEntry={deleteWorkEntry}
+                toggleEdit={toggleWorkEdit}
+                isEdit={work.isEdit}
+                uniqueId={work.uniqueId}
+                editExistingWork={editExistingWork}
               />
             );
           })}

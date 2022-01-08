@@ -219,7 +219,7 @@ button:hover {
   margin-left: 10px;
 }
 
-.education-listing-buttons {
+.listing-buttons {
   display: flex;
   gap: 10px;
 }

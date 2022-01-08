@@ -188,7 +188,7 @@ class CVContainer extends Component {
 
     this.setState((prevState) => ({
       ...prevState,
-      workList: [...this.state.workList, this.state.work],
+      workList: [...prevState.workList, prevState.work],
       work: {
         uniqueId: `work${uniqid()}`,
         company: "",
@@ -212,7 +212,7 @@ class CVContainer extends Component {
   };
 
   deleteWorkEntry = (e) => {
-    const targetId = e.target.parentNode.id;
+    const targetId = e.target.getAttribute("refid");
 
     this.setState((prevState) => ({
       ...prevState,
@@ -251,6 +251,38 @@ class CVContainer extends Component {
           return itemCopy;
         }
         return education;
+      }),
+    }));
+  };
+
+  editExistingWork = (e) => {
+    const targetId = e.target.getAttribute("refid");
+    console.log(e.target.value);
+
+    this.setState((prevState) => ({
+      ...prevState,
+      workList: prevState.workList.map((work) => {
+        if (work.uniqueId === targetId) {
+          const itemCopy = { ...work };
+          itemCopy[e.target.id] = e.target.value;
+          return itemCopy;
+        }
+        return work;
+      }),
+    }));
+  };
+  toggleWorkEdit = (e) => {
+    const targetId = e.target.getAttribute("refid");
+
+    this.setState((prevState) => ({
+      ...prevState,
+      workList: prevState.workList.map((work) => {
+        if (work.uniqueId === targetId) {
+          const itemCopy = { ...work };
+          itemCopy.isEdit = !itemCopy.isEdit;
+          return itemCopy;
+        }
+        return work;
       }),
     }));
   };
@@ -298,6 +330,12 @@ class CVContainer extends Component {
           }}
           editExistingEducation={(e) => {
             this.editExistingEducation(e);
+          }}
+          editExistingWork={(e) => {
+            this.editExistingWork(e);
+          }}
+          toggleWorkEdit={(e) => {
+            this.toggleWorkEdit(e);
           }}
         />
         <DisplayWindow
